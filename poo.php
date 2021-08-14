@@ -22,11 +22,30 @@ class Persona {
     public $edad;
     private $genero;
     protected $pasaporte;
+
+    public function getNombre() {
+        return $this->nombre;
+    }
 }
 
 $persona = new Persona();
+$persona->nombre = 'Josue';
+
+echo $persona->getNombre().' ';
 
 class PersonaTipoSangrePositivo extends Persona {
     // Esta propiedad no cambiara
     public static $tipo_sangre = 'A+';
+
+    public function getTipo() {
+        // Se una "self" para referenciar a la misma clase
+        // Se usa "parent" para referenciar a la clase base
+        return self::$tipo_sangre;
+    }
 }
+$persona_positiva = new PersonaTipoSangrePositivo();
+echo $persona_positiva->getTipo();
+
+// Accediendo a la variable directamente desde la clase
+echo '<br>';
+echo 'Tipo de sangre en variable estática '.PersonaTipoSangrePositivo::$tipo_sangre;
