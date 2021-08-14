@@ -42,6 +42,16 @@ class PersonaTipoSangrePositivo extends Persona {
         // Se usa "parent" para referenciar a la clase base
         return self::$tipo_sangre;
     }
+
+    static function a() {
+        echo 'funcion estatica';
+    }
+    protected function b() { 
+        echo 'funcion protegida';
+    }
+    private function c() { 
+        echo 'funcion privada';
+    }   
 }
 $persona_positiva = new PersonaTipoSangrePositivo();
 echo $persona_positiva->getTipo();
@@ -49,3 +59,6 @@ echo $persona_positiva->getTipo();
 // Accediendo a la variable directamente desde la clase
 echo '<br>';
 echo 'Tipo de sangre en variable estática '.PersonaTipoSangrePositivo::$tipo_sangre;
+
+echo '<br>';
+echo PersonaTipoSangrePositivo::a();
